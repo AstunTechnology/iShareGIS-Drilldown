@@ -1,0 +1,5 @@
+<Plugin>
+	<Name>drilldown</Name>
+	<Description>Enables interactive selecting of features from pre-defined layers via the map</Description>
+	<Category>advanced</Category>
+</Plugin>
