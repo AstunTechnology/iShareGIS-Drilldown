@@ -14,6 +14,10 @@ The plugin requires [iShareGIS](http://astuntechnology.com/ishare/modules/ishare
 * To enable the plugin edit iShareGIS.xml and add a line for the Drilldown plugin like so: <Plugin>Drilldown</Plugin>
 * That’s it. You might need to clear the browser cache for the Drilldown button to appear
 
+Determining the name of the MapSource can be a little tricky as the plugin requires the identifier of the MapSource not the display name. The following screenshot shows how you can find the correct value in the title of Studio by selecting the MapSource:
+
+![MapSource identifier in Studio](mapsource_id.png)
+
 Support
 -------
 
@@ -24,3 +28,8 @@ Thanks
 
 Thanks to James Rutter at [Surrey Heath Borough Council](http://www.surreyheath.gov.uk/) for coming up with the idea and funding the origial development.
 
+Issues
+-----
+
+* If a drill down layer is active and queryable then results for the layer are shown twice
+* There must be an active layer for any results to be returned

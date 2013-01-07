@@ -22,7 +22,6 @@ Astun.JS.Plugins.installDialog("drilldown", function($map, openlayers) {
 	 * seen when you have selected an individual layer in Studio
 	 */
 
-	
 	var infoLayers = {
 		"GIS/PlanningAdmin": ["llpg_blpu", "planning_history_all"],
 		"GIS/BuildCtrl": ["llpg_blpu", "planning_history_all", "buildctrl_history_all"]
