@@ -16,7 +16,7 @@ The plugin requires [iShareGIS](http://astuntechnology.com/ishare/modules/ishare
 
 Determining the name of the MapSource can be a little tricky as the plugin requires the identifier of the MapSource not the display name. The following screenshot shows how you can find the correct value in the title of Studio by selecting the MapSource:
 
-![MapSource identifier in Studio](mapsource_id.png)
+![MapSource identifier in Studio](https://raw.github.com/AstunTechnology/iShareGIS-Drilldown/master/mapsource_id.png)
 
 Support
 -------
