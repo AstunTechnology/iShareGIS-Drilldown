@@ -124,12 +124,7 @@ Astun.JS.Plugins.installDialog("drilldown", function($map, openlayers) {
 					// to signify the tool becoming inactive
 					jQuery('div.atToolbarRemoveFeature').trigger('click');
 
-					$map.bind("circleStatus", function($evt, status) {
-						if (!status) {
-							$map.trigger("select-circle-off");
-						}
-					});
-					$map.trigger('selectionControls', ['circle']);
+					$map.trigger("createVector", ["circle"]);
 
 					// Register for the toolbarCreated event so we can add the
 					// drill down layers
@@ -137,9 +132,9 @@ Astun.JS.Plugins.installDialog("drilldown", function($map, openlayers) {
 
 				},
 				off: function($e, data, $map, openlayers) {
-					$map.trigger('mapControls', ['reset', true]);
+					$map.trigger("resetVectorTools");
 				},
-				offEvent: "select-circle-off",
+				offEvent: "scratch-feature-added vectorToolsReset",
 				text: "Circle",
 				tooltip: "Click-and-drag on the map to create a circular selection of features"
 			},
@@ -147,18 +142,13 @@ Astun.JS.Plugins.installDialog("drilldown", function($map, openlayers) {
 				name: "selectPolygon",
 				on: function($e, data, $map, openlayers) {
 					jQuery('div.atToolbarRemoveFeature').trigger('click');
-					$map.bind("polygonStatus", function($evt, status) {
-						if (!status) {
-							$map.trigger("select-polygon-off");
-						}
-					});
-					$map.trigger('selectionControls', ['polygon']);
+					$map.trigger("createVector", ["polygon"]);
 					$eventElement.bind('toolbarCreated', toolbarCreated);
 				},
 				off: function($e, data, $map, openlayers) {
-					$map.trigger('mapControls', ['reset', true]);
+					$map.trigger("resetVectorTools");
 				},
-				offEvent: "select-polygon-off",
+				offEvent: "scratch-feature-added vectorToolsReset",
 				text: "Polygon",
 				tooltip: "Click to create corners of an irregular polygon then double-click to close the polygon and select the contained features"
 			}
