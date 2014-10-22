@@ -6,7 +6,7 @@ The Drilldown plugin for iShareGIS allows the administrator to configure a prede
 Installation
 ------------
 
-The plugin requires [iShareGIS](http://astuntechnology.com/ishare/modules/ishare-gis/) v5.0 or above.
+The plugin requires [iShareGIS](http://astuntechnology.com/ishare/modules/ishare-gis/) v5.4 or above.
 
 * Download the plugin files by clicking the "ZIP" button on the [project page](https://github.com/AstunTechnology/iShareGIS-Drilldown)
 * Open the zip file and copy the entire iShareGIS-Drilldown-master folder into your plugins folder (Astun\iShareGIS\5.0\WebApps\Web\plugins\) and rename it to Drilldown
