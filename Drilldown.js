@@ -111,54 +111,33 @@ Astun.JS.Plugins.installDialog("drilldown", function($map, openlayers) {
 			{
 				name: "selectCircle",
 				on: function($e, data, $map, openlayers) {
-
-					// Remove any existing features before getting started
-					// this is a bit hacky but required to work around a bug
-					// where the drill down layers are not added if you draw
-					// a region then draw another clearing the previous feature
-					// when prompted. When the feature is cleared the toolbarDestoryed
-					// listener is called which removes all of our toolbar listeners
-					// and hence the toolbarCreated listener is not called which
-					// adds the drill down layers.
-					// A better solution would be to find a suitable event that we can use
-					// to signify the tool becoming inactive
-					jQuery("div.atToolbarRemoveFeature").trigger("click");
-
-					$map.bind("circleStatus", function($evt, status) {
-						if (!status) {
-							$map.trigger("select-circle-off");
-						}
-					});
-					$map.trigger("selectionControls", ["circle"]);
-
 					// Register for the toolbarCreated event so we can add the
 					// drill down layers
 					$eventElement.bind("toolbarCreated", toolbarCreated);
+
+					// Call vector creator event, this should handle clearing 
+					// old vectors and also create a toolbar
+					$map.trigger("createVector", ["circle"]);
+
 
 				},
 				off: function($e, data, $map, openlayers) {
 					$map.trigger("mapControls", ["reset", true]);
 				},
-				offEvent: "select-circle-off",
+				offEvent: "scratch-feature-added vectorToolsReset",
 				text: "Circle",
 				tooltip: "Click-and-drag on the map to create a circular selection of features"
 			},
 			{
 				name: "selectPolygon",
 				on: function($e, data, $map, openlayers) {
-					jQuery("div.atToolbarRemoveFeature").trigger("click");
-					$map.bind("polygonStatus", function($evt, status) {
-						if (!status) {
-							$map.trigger("select-polygon-off");
-						}
-					});
-					$map.trigger("selectionControls", ["polygon"]);
 					$eventElement.bind("toolbarCreated", toolbarCreated);
+					$map.trigger("createVector", ["polygon"]);
 				},
 				off: function($e, data, $map, openlayers) {
-					$map.trigger("mapControls", ["reset", true]);
+					$map.trigger("resetVectorTools");
 				},
-				offEvent: "select-polygon-off",
+				offEvent: "scratch-feature-added vectorToolsReset",
 				text: "Polygon",
 				tooltip: "Click to create corners of an irregular polygon then double-click to close the polygon and select the contained features"
 			}
@@ -177,5 +156,3 @@ Astun.JS.Plugins.installButton(
 		tooltipTitle: "Drill down"
 	}
 );
-
-
