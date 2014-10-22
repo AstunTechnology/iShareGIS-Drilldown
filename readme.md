@@ -3,6 +3,10 @@ iShareGIS Drilldown Plugin
 
 The Drilldown plugin for iShareGIS allows the administrator to configure a predetermined set of layers that will be queried for info once the user has drawn a feature on the map. The original use case was for planning admin users who regularly need to perform searches for a given location against various planning constraint layers.
 
+Releases
+--------
+**WARNING**: This is the 'master' development branch of the plugin and is not intended for use in a live environment. If you wish to use this plugin on a production system then please select the appropriate release for your version of iShare from the [releases page](https://github.com/AstunTechnology/iShareGIS-Drilldown/releases).
+
 Installation
 ------------
 
